@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Love Letter</title>
+  
+  <!-- Romantic font -->
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Parisienne', cursive;
+      background: linear-gradient(to bottom, #ffccd5, #ffe6f0);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .menu, .letter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4d6d;
+      text-shadow: 0 0 10px #ffb6c1;
+      margin-bottom: 40px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      background: #ff4d6d;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(255,77,109,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(255,77,109,0.6);
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(-45deg);
+      animation: float 2s linear infinite;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart:before { top: -10px; left: 0; }
+    .heart:after { top: 0; left: 10px; }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-200px) rotate(-45deg); opacity: 0; }
+    }
+
+    .letter {
+      display: none;
+      font-size: 1.8rem;
+      color: #ff4d6d;
+      line-height: 1.6;
+      background: rgba(255, 240, 245, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(255,77,109,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu -->
+  <div class="menu">
+    <h1>happy sixteenth monthsary!</h1>
+    <button id="loveButton">Open Letter</button>
+  </div>
+
+  <!-- Letter (hard-coded) -->
+  <div class="letter" id="letterContent">
+    <p>Happy 16thh!!</p>
+    <p> Halluu, Happy 16th month asemm. ngayon nalang ulit ako gagawa ng letter para sayo kasi nahihiya ako lagi HWHAHAHA. Thank you for being here for the past 483 dayss. Thank you for staying even if madami tayong misunderstanding, kahit mahirap ako intindihin. I know na may times na sumasabay ako sa mga problems mo and don’t try to deny it 😤 Naiintindihan ko naman minsan kung bakit ganyan ikaw mag act, na nahihirapan ka mag sabi ng mga bagay bagay, i’m sorry for always forcing you na sabihin mga problema moo, sorry if my walls are too high to reach. I’m sorry if pinapafeel kong you’re not enough, na may need kang baguhin para lang maabot yung standards ko, pero i promise naman na you’re enough, more than enough. I will always love every version of you specially your flaws and your vulnerable side
+
+Through our 16th month, I learned a lot of things, na communication will always be a way of solving things, I learned to give you the space that you need whenever na hindi ka okay kasi kala ko dati we need to talk every minute, hour for us to be healthy pero huehue my bad yun. Sobra sobrang dami kong natutunan sayo cguro if Hindi Kita naging ka mu I would be so childish parin, yk ipag lalaban kahit mali ako and other stuffs. I’m fortunate na nakilala kita, I don’t regret anything abt our relationship. I will forever treasure every moment I had with you, and I will always choose you in every lifetime. 
+
+I’m not expecting naman na dahil Sa letter na to magkakausap ulit tayo and stuffs. Take all the time you need para mag pahingaa, okey lang pu sakenn. Basta, I will wait for you no matter how long it takes, cute mo nga kapag tinatry ako layuan eh HWHAHABAHAHAHAH okey sorry my bad 💁🏻. If seeing me makes it hard for you to have a peace of mind edi ako na po lalayoo, I can’t promise it pero i will try para sayooo. HAPPY 16TH MONTH ULIT MAHAL KOO, I MISS YOU SOO MUCH AND I LOVE YOU SO SO SO SO SOOOO MUCH PO 😋 </p>
+    <p></p>
+    <p><></p>
+  </div>
+
+  <script>
+    const button = document.getElementById('loveButton');
+    const letter = document.getElementById('letterContent');
+    let heartsInterval;
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      heart.style.width = 10 + Math.random() * 20 + 'px';
+      heart.style.height = heart.style.width;
+      heart.style.animationDuration = 2 + Math.random() * 2 + 's';
+      document.body.appendChild(heart);
+      
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    button.addEventListener('click', () => {
+      heartsInterval = setInterval(createHeart, 300);
+
+      // Show letter after 3 seconds
+      setTimeout(() => {
+        clearInterval(heartsInterval);
+        letter.style.display = 'block';
+        document.querySelector('.menu').style.display = 'none';
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
